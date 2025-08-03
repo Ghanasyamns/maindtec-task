@@ -30,9 +30,8 @@ export default function ChatInterface({
   const [error, setError] = useState("");
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
-  const { getChatState, addMessage, setLoading, chatStates } = useChatStore();
+  const { getChatState, addMessage, setLoading } = useChatStore();
   const chatState = getChatState(contextId, contextType);
-  console.log(chatStates);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
