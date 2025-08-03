@@ -30,8 +30,9 @@ export default function ChatInterface({
   const [error, setError] = useState("");
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
-  const { getChatState, addMessage, setLoading } = useChatStore();
+  const { getChatState, addMessage, setLoading, chatStates } = useChatStore();
   const chatState = getChatState(contextId, contextType);
+  console.log(chatStates);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -69,6 +70,12 @@ export default function ChatInterface({
           }, here's what I found...`,
           `That's an interesting question about ${contextName}. Let me analyze this for you.`,
           `I see you're working with ${contextName}. Here are some insights that might help.`,
+          `Great question! This ${contextType} has some interesting characteristics. Let me break it down for you.`,
+          `I've analyzed the content and here's what stands out...`,
+          `Is there a particular function or section you'd like me to explain?`,
+          `I can help you refactor this code. What are your goals?`,
+          `What do you want to know about this file/project?`,
+          `Let's break down the logic together. Where should we start?`,
         ];
 
         const randomResponse =
